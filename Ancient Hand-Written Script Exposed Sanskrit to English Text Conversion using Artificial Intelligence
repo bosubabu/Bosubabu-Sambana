@@ -1,0 +1,46 @@
+Ancient Hand-Written Script Exposed Sanskrit to English Text Conversion using Artificial Intelligence
+
+Bosubabu Sambana is an initiative aimed at developing an English-to-Sanskrit sentence translation model. While translation technologies are widely used across industries—from business and media to government and social networks—there remains a significant gap when it comes to high-quality, automated Sanskrit translation tools. Existing resources largely focus on word-by-word dictionaries and do not account for sentence-level grammar or context.
+According to the 2001 Indian census, around five million people speak Sanskrit as either a first, second, or third language. Despite this, there is a lack of robust tools for full-sentence translation to and from Sanskrit. Creating such a system would provide valuable utility across various sectors and for individual users alike.
+Machine Translation (MT) is a well-established area within data science, with numerous models already applied successfully to various language pairs. Adapting these models for Sanskrit, especially given its unique grammatical structure and script, presents both a challenge and an opportunity. Fortunately, the availability of the International Alphabet of Sanskrit Transliteration (IAST), which uses Latin script, can help reduce some of the complexity involved in working with Devanagari, the standard script for Sanskrit.
+
+Project Objectives
+The primary aim is to build a machine learning model capable of translating between multiple languages, with a final focus on English-Sanskrit translation. The project will begin with more widely studied language pairs, such as English-German, to help the model grasp fundamental linguistic patterns. These initial steps will serve as a foundation before progressing to Sanskrit, a language with far less existing translation support.
+By starting with common language pairs, we can validate our model against established benchmarks and ensure its performance is reliable. Throughout the process, we will split the dataset into training and test sets to systematically evaluate the model's effectiveness.
+
+
+Modeling Approach
+Our core model will be based on the Encoder-Decoder architecture using Long Short-Term Memory (LSTM) networks. LSTM is a type of recurrent neural network (RNN) that excels at learning from sequences where both short-term and long-term dependencies are important—making it ideal for language translation.
+•	Encoder: Processes and encodes the input sentence into a context vector that captures its semantic meaning.
+•	Decoder: Takes the encoded vector and generates the translated sentence, word by word or character by character.
+This structure is particularly effective because it allows the model to retain contextual understanding throughout the translation process.
+Another method under consideration is Statistical Machine Translation (SMT), which builds translation models based on statistical relationships found in bilingual corpora. For Sanskrit, where morphology plays a crucial role, we plan to integrate morphological analysis tools to enhance translation accuracy. Tools like Morphogen can aid in handling the morphological richness of Sanskrit compared to less inflectional languages like English.
+Technologies and Tools
+We plan to use TensorFlow, a popular open-source library in Python, for building and training our models. TensorFlow offers a user-friendly interface, extensive documentation, and powerful features like GPU acceleration via CUDA, which will be useful given the computational demands of our models.
+We may also explore other frameworks such as MXNet, which supports multi-GPU training and might provide performance advantages for large datasets and more complex models.
+This project blends established translation techniques with the unique challenges posed by Sanskrit, aiming to fill a gap in current translation tools by building a comprehensive and context-aware translation system.
+
+Data Set:
+1.	INRIA Sanskrit Manual
+Website: http://sanskrit.inria.fr/manual.html
+This platform provides tools and resources for Sanskrit morphological tagging. The morphological data available here is valuable for use in Statistical Machine Translation (SMT), where accurate word analysis is crucial.
+
+2.	Sanskrit Bible (New Testament Translation)
+Website: http://sanskritbible.in
+This resource suggestions aligned Sanskrit and English verses from the New Testament. The parallel text pairs can be extracted as JSON objects, which is particularly useful for training sequence-to-sequence models such as LSTM-based translators.
+3.	OPUS Project
+Website: http://opus.nlpl.eu
+A comprehensive repository of multilingual parallel corpora including English, German, French, Spanish, and other languages. While it includes limited Sanskrit content, it's an excellent resource for training initial models with more common languages before transitioning to Sanskrit.
+
+4.	Sanskrit-English Lexicon Dataset
+Website: https://old.datahub.io/dataset/sanskrit-english-lexicon
+A curated lexicon for Sanskrit-to-English translations, focusing on individual words. It’s suitable for foundational translation models and for enriching word-level understanding in sentence translation tasks.
+
+5.	Sanskrit Word Segmentation Dataset (Zenodo)
+DOI:https://doi.org/10.5281/zenodo.803508
+This dataset was developed to address challenges in Sanskrit word segmentation, where incorrect breaking of compound words can lead to misinterpretation. It provides properly segmented word data, critical for pre-processing in NLP models. For instance, अहं गǔछा ( anh: gaccha)and गǔछाfम (gacchami) mean the same thing.
+6.	Bhagavad Gita Translation
+Website: https://www.holy-bhagavad-gita.org/chapter/2/verse/1
+This source presents each verse in Sanskrit along with its IAST transliteration and English translation, allowing for multi-level input for training models (original script, transliteration, and translation).
+
+
